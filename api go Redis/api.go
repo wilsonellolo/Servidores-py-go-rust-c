@@ -116,7 +116,7 @@ if err := rdb.RPush("queue", "message1").Err(); err != nil {
 
 
 //Obteniendo los datos de la lista llamada queue
-result3, err := rdb.LRange("queue", 0, -1).Result()
+result3, err := rdb.LRange("valor", -1, -10).Result()
 fmt.Println(result3)
 
 

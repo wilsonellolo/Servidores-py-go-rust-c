@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafica GO</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <link rel="stylesheet" href="./libs/morris.css">
+    <script src="./libs/morris.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <h3>Informacion de RAM</h3><hr>
+    <div class="container">
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Grafica de poligono de uso de ram en el tiempo</h4>
+                    <hr> 
+                    <div id="primera" style="height: 250px; width: 500px;"></div>
+                </div>
+            </div>
+        </div>
+        <input id="pulsar" type="submit" value="Actualizar" class="btn btn-primary">
+    </div>     
+</body>
+</html>
+<script charset="utf-8">
+    window.onload= function ejemplo(){
+        new Morris.Bar({
+            element: 'primera',
+            data: [
+                {x: 'HOLA Q1', y: 3, z: 2, a: 3},
+                {x: 'ADIO Q2', y: 2, z: null, a: 1},
+                {x: '2011 Q3', y: 0, z: 2, a: 4},
+                {x: '2011 Q4', y: 2, z: 4, a: 3}
+            ],
+            xkey: 'x',
+            ykeys: ['y', 'z', 'a'],
+            labels: ['Y', 'Z', 'A']
+        }) 
+        
+            var ejecT = setTimeout(recarga, 5000);
+        function recarga(){
+            document.getElementById("pulsar").click();
+        }
+    }
+</script>
+
+
+
+
+
