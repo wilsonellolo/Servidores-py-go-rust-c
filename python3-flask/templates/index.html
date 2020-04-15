@@ -18,14 +18,14 @@
             <hr>
             <div class="row">
                 <div class="col-md-6">
-                    <h4>Grafica de RAM vs. CPU</h4>
+                    <h4>RAM a {{r9}}%  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp - &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  CPU {{c9}}%</h4>
                     <hr> 
                     <div id="primera" style="height: 250px; width: 900px;"></div>
                 </div>
             </div>
         </div>
         
-            <button id="pulsar" type="submit" value="Actualizar" class="btn btn-primary">Actualizar</button>
+            <button id="pulsar" onclick="actualiza()" type="submit" value="Actualizar" class="btn btn-primary">Actualizar</button>
         
     </div>     
 </body>
@@ -55,6 +55,10 @@
         function recarga(){
             document.getElementById("pulsar").click();
         }
+    }
+
+    function actualiza(){
+        location.reload();
     }
 </script>
 
