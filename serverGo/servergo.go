@@ -19,14 +19,16 @@ type Punto struct {
 
 func pagina(w http.ResponseWriter, r *http.Request) {
 	rdb := redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379",
+		Addr:     "52.33.234.92:6379",
 		Password: "", // no password set
 		DB:       0,  // use default DB
 	})
+	pong, err := rdb.Ping().Result()
+	fmt.Println(pong, err)
 	
 	t, _ := rdb.LRange("tiempo", -10, -1).Result()
 	fmt.Println(t)
-	u, _ := rdb.LRange("valor", -10, -1).Result()
+	u, _ := rdb.LRange("memoria", -10, -1).Result()
 	fmt.Println(u)
 	
 	
@@ -39,7 +41,7 @@ func pagina(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", pagina)
-	http.ListenAndServe(":9000", nil)
+	http.ListenAndServe(":9001", nil)
 }
 
 
